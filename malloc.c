@@ -71,6 +71,7 @@ void *realloc(void *ptr, size_t size)
 	}
 
 	struct block *b = get_block_ptr(ptr);
+    assert(b->free == 0);
 	if (!b)
 		return NULL;
 	// we have enough space
@@ -83,10 +84,8 @@ void *realloc(void *ptr, size_t size)
 			free(ptr);
 			return NULL;
 		}
-		struct block *b = get_block_ptr(ptr);
 		memcpy(new_chunk, ptr, b->size);
-		assert(b->free == 0);
-		free(b);
+		free(ptr);
 		assert(b->free == 1);
 		return new_chunk;
 	}
