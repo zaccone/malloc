@@ -4,6 +4,6 @@ clean:
 build:
 	gcc -O0 -g -W -Wall -Wextra -shared -fPIC malloc.c -o malloc.so
 test: all
-	gcc -g test.c -o test
+	gcc -g -std=c11 test.c -o test
 	LD_PRELOAD=./malloc.so ./test
 
