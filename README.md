@@ -1,6 +1,6 @@
 # malloc
-Simplistic implementation of a malloc and free function. 
-It's surely not production ready implemenation, so do not use it.
+Simplistic implementation of a malloc(), calloc(), realloc() and free() functions. 
+It's surely not production ready, so you are not advised to use it.
 
 ## Installation
 
